@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"flood_fill.h": "c"
+		"flood_fill.h": "c",
+		"unistd.h": "c"
 	}
 }
