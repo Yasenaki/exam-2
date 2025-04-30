@@ -23,7 +23,7 @@
 // char	*ft_itoa(int nbr);
 #include <unistd.h>
 
-static size_t	to_digit(int b)
+static size_t	putnb(int b)
 {
 	size_t	i;
 	size_t	buf;
@@ -50,7 +50,7 @@ char	*ft_itoa(int n)
 	long	holder_number;
 
 	holder_number = n;
-	i = to_digit(n);
+	i = putnb(n);
 	out = (char *)malloc(i + 1);
 	if (!out)
 		return (NULL);
