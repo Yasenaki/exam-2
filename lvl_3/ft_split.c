@@ -6,7 +6,7 @@
 /*   By: jopires- <jopires-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 15:56:39 by jopires-          #+#    #+#             */
-/*   Updated: 2025/04/24 08:29:33 by jopires-         ###   ########.fr       */
+/*   Updated: 2025/04/30 13:47:49 by jopires-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ char	**ft_split(char const *s, char c)
 
 int main()
 {
-	char **result = ft_split("hello!", ' ');
+	char **result = ft_split("hel lo you ahre very good!", 'h');
 	for (int i = 0; result[i]; i++)
 	{
 		printf("result[%d] = \"%s\"\n", i, result[i]);

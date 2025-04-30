@@ -21,11 +21,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int *ft_range(int min, int max);
+int *ft_range(int min, int max)
+{
+	int *tab;
+	int i;
+
+	if (min >= max)
+		return (NULL);
+	tab = (int*)malloc(sizeof(*tab) * (max - min));
+	i = 0;
+	while (min < max +1)
+	{
+		tab[i] = min;
+		i++;
+		min++;
+	}
+	return (tab);
+}
 
 int main(void)
 {
-    int min = 5;
+    int min = -5;
     int max = 10;
     int *range = ft_range(min, max);
     int size = max - min;
