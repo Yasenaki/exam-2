@@ -50,13 +50,8 @@
 // 	int     data;
 // 	t_list  *next;
 // };
-#include <unistd.h>
-typedef struct	s_list
-{
-	struct s_list	*next;
-	void			*data;
-}				t_list;
-
+// Online C compiler to run C program online
+#include "sort_list.h"
 t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 {
 	int		holder;
@@ -65,11 +60,11 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	lstcppy = lst;
 	while (lst->next != NULL)
 	{
-		if (((*cmp)(lst->data, lst->next->data)) == 0)
+		if ((*cmp)((int)(long)lst->data, (int)(long)lst->next->data) == 0)
 		{
-			holder = lst->data;
+			holder = (int)(long)lst->data;
 			lst->data = lst->next->data;
-			lst->next->data = holder;
+			lst->next->data = (void *)(long)holder;
 			lst = lstcppy;
 		}
 		else
@@ -77,4 +72,39 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	}
 	lst = lstcppy;
 	return (lst);
+}
+int main(void)
+{
+	// Create 3 list nodes
+	t_list *node1 = malloc(sizeof(t_list));
+	t_list *node2 = malloc(sizeof(t_list));
+	t_list *node3 = malloc(sizeof(t_list));
+
+	if (!node1 || !node2 || !node3)
+		return 1;
+
+	// Assign dummy data
+	node1->data = (void *)(long)3;
+	node2->data = (void *)(long)2;
+	node3->data = (void *)(long)1;
+
+	// Link the nodes
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = NULL;
+    
+    t_list *out = sort_list(node1, ascend);
+    
+	while(out)
+	{
+		printf("%d\n", (long)out->data);
+		out = out ->next;
+	}
+
+	// Free memory
+	free(node1);
+	free(node2);
+	free(node3);
+
+	return 0;
 }
