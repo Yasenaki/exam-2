@@ -1,5 +1,6 @@
-#ifndef FT_LIST_REMOVE_IF_H
-#define FT_LIST_REMOVE_IF_H
+#ifndef FT_LIST_H
+#define FT_LIST_H
+
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct      s_list
