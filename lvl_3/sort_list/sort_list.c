@@ -73,6 +73,10 @@ t_list	*sort_list(t_list* lst, int (*cmp)(int, int))
 	lst = lstcppy;
 	return (lst);
 }
+int ascend(int a, int b)
+{
+	return (a <= b);
+}
 int main(void)
 {
 	// Create 3 list nodes

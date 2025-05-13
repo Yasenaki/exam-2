@@ -11,8 +11,5 @@ typedef struct	s_list
 	void			*data;
 }				t_list;
 
-int ascend(int a, int b)
-{
-	return (a <= b);
-}
+
 #endif
