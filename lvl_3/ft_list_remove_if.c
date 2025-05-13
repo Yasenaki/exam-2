@@ -33,7 +33,8 @@
 //     void            *data;
 // }                   t_list;
 // $>
-
+#include <stdio.h>
+#include <stdlib.h>
 typedef struct      s_list
 {
     struct s_list   *next;
@@ -60,4 +61,37 @@ void		ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)())
 		previous = current;
 		current = current->next;
 	}
+}
+int ft_compare(int a, int b)
+{
+	if(a == b)
+		return(0);
+	return(1);
+}
+int main()
+{
+
+	t_list *node1 = malloc(sizeof(t_list));
+	t_list *node2 = malloc(sizeof(t_list));
+	t_list *node3 = malloc(sizeof(t_list));
+
+	if (!node1 || !node2 || !node3)
+		return 1;
+
+	node1->data = (void*)(long) 0;
+	node2->data = (void*)(long) 1;
+	node3->data = (void*)(long) 2;
+
+	node1->next = node2;
+	node2->next = node3;
+	node3->next = NULL;
+	
+	ft_list_remove_if(&node1,(void *)3,ft_compare);
+	t_list *out = node1;
+	while(out)
+	{
+		printf("%d\n",(int)(long)out->data);
+		out = out ->next;
+	}
+	return(0);
 }

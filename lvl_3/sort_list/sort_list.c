@@ -97,7 +97,7 @@ int main(void)
     
 	while(out)
 	{
-		printf("%d\n", (long)out->data);
+		printf("%d\n", (int)(long)out->data);
 		out = out ->next;
 	}
 
